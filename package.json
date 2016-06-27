@@ -1,0 +1,16 @@
+{
+  "name": "fp-less",
+  "version": "0.0.0",
+  "description": "Less extension for Fepper",
+  "dependencies": {
+    "gulp-less": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electric-eloquence/fp-less.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">= 4.0.0"
+  }
+}
