@@ -11,7 +11,6 @@
     "node": ">= 4.0.0"
   },
   "dependencies": {
-    "gulp-less": "^3.3.0",
-    "gulp-sourcemaps": "^1.9.1"
+    "gulp-less": "^3.3.0"
   }
 }
