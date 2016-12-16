@@ -7,7 +7,6 @@ const runSequence = require('run-sequence');
 
 const appDir = global.appDir;
 const utils = require(`${appDir}/core/lib/utils`);
-const utilsTask = require(`${appDir}/tasker/utils`);
 
 const cssBldDir = utils.pathResolve(conf.ui.paths.source.cssBld);
 const cssSrcDir = utils.pathResolve(conf.ui.paths.source.cssSrc);
