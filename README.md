@@ -6,7 +6,7 @@ Add these tasks to `excludes/extend/custom.js`:
 * Under gulp task 'custom:frontend-copy'
   * 'less:frontend-copy'
 * Under gulp task 'custom:once'
-  * 'less'
+  * 'less:once'
 * Under gulp task 'custom:watch'
   * 'less:watch'
 
