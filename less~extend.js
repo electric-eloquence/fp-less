@@ -25,7 +25,7 @@ gulp.task('less:once', ['less']);
 gulp.task('less:frontend-copy', function (cb) {
   runSequence(
     'less',
-    'patternlab:copy-styles',
+    'ui:copy-styles',
     cb
   );
 });
