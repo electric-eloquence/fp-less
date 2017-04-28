@@ -13,5 +13,26 @@
   },
   "dependencies": {
     "gulp-less": "^3.3.0"
-  }
+  },
+  "keywords": [
+    "atomic",
+    "component",
+    "css",
+    "design",
+    "end",
+    "fepper",
+    "front",
+    "front-end",
+    "frontend",
+    "lab",
+    "less",
+    "library",
+    "pattern",
+    "pre-processor",
+    "preprocessor",
+    "prototype",
+    "prototyper",
+    "prototyping",
+    "template"
+  ]
 }
