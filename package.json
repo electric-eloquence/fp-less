@@ -7,13 +7,6 @@
     "type": "git",
     "url": "git+https://github.com/electric-eloquence/fp-less.git"
   },
-  "license": "MIT",
-  "engines": {
-    "node": ">=8.5.0"
-  },
-  "dependencies": {
-    "gulp-less": "^3.3.0"
-  },
   "keywords": [
     "atomic",
     "component",
@@ -34,5 +27,12 @@
     "prototyper",
     "prototyping",
     "template"
-  ]
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.5.0"
+  },
+  "dependencies": {
+    "gulp-less": "^3.3.0"
+  }
 }
