@@ -1,6 +1,7 @@
 # Less extension for Fepper
 
 ### Install
+
 Add these tasks to `excludes/extend/custom.js`:
 
 * Under gulp task 'custom:frontend-copy'
