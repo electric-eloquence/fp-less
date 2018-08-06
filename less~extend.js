@@ -7,10 +7,8 @@ const runSequence = require('run-sequence');
 const appDir = global.appDir;
 const conf = global.conf;
 
-const utils = require(`${appDir}/core/lib/utils`);
-
-const cssBldDir = utils.pathResolve(conf.ui.paths.source.cssBld);
-const cssSrcDir = utils.pathResolve(conf.ui.paths.source.cssSrc);
+const cssBldDir = conf.ui.paths.source.cssBld;
+const cssSrcDir = conf.ui.paths.source.cssSrc;
 
 gulp.task('less', function () {
   return gulp.src(cssSrcDir + '/less/*.less')
