@@ -28,5 +28,5 @@ gulp.task('less:frontend-copy', function (cb) {
 });
 
 gulp.task('less:watch', function () {
-  gulp.watch('less/**', {cwd: cssSrcDir}, ['less']);
+  gulp.watch('less/**/*', {cwd: cssSrcDir}, ['less']);
 });
