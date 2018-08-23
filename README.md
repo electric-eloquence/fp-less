@@ -12,3 +12,6 @@ Add these tasks to `excludes/extend/custom.js`:
   * 'less:watch'
 
 Create a `source/_styles/src/less` directory and put all Less code there.
+
+Running any of these tasks will write the compiled CSS to the 
+`paths.source.cssBld` directory as defined in `patternlab-config.json`.
