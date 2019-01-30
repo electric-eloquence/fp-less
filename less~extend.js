@@ -2,7 +2,6 @@
 
 const gulp = require('gulp');
 const less = require('gulp-less');
-const runSequence = require('run-sequence');
 
 const conf = global.conf;
 
@@ -20,7 +19,7 @@ gulp.task('less', function () {
 gulp.task('less:once', ['less']);
 
 gulp.task('less:frontend-copy', function (cb) {
-  runSequence(
+  gulp.runSequence(
     'less',
     'ui:copy-styles',
     cb
