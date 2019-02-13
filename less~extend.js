@@ -16,7 +16,7 @@ const cssSrcDir = conf.ui.paths.source.cssSrc;
 pref.less = pref.less || {};
 
 if (typeof pref.less.paths === 'undefined') {
-  pref.less.paths = [cssSrcDir + '/less']
+  pref.less.paths = [cssSrcDir + '/less'];
 }
 
 // Opt for line comments by default.
