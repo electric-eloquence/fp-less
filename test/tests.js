@@ -41,7 +41,6 @@ const styleBack = `${__dirname}/backend/${pref.backend.synced_dirs.styles_dir}/b
 const styleBld = `${srcCssBldDir}/style.css`;
 const styleLocalPref = `${srcCssBldDir}/local-pref.css`;
 const styleLess = `${srcCssSrcDir}/less/style.less`;
-const styleScss = `${srcCssSrcDir}/less/local-pref.less`;
 const styleWatchCss = `${srcCssBldDir}/watch-fixture.css`;
 const styleWatchLess = `${srcCssSrcDir}/less/watch-fixture.less`;
 const sourcemap = `${styleBld}.map`;
@@ -84,9 +83,9 @@ describe('fp-less', function () {
 
     it('should compile LESS partials into a CSS file with line comments', function (done) {
       const styleBldCss = fs.readFileSync(styleBld, enc);
-      const styleLessSass = fs.readFileSync(styleLess, enc);
 
       expect(styleBldExistsBefore).to.equal(false);
+      expect(styleLocalPrefExistsBefore).to.equal(false);
 
       expect(styleBldCss).to.contain(cssBody);
       expect(styleBldCss).to.contain(cssA);
