@@ -3,6 +3,16 @@
   "version": "0.2.2",
   "description": "Less extension for Fepper",
   "main": "less~extend.js",
+  "scripts": {
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint *.js && eslint test/*.js",
+    "test": "nyc mocha --exit"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run lint && npm test"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electric-eloquence/fp-less.git"
@@ -37,6 +47,18 @@
     "node": ">=8.5.0"
   },
   "dependencies": {
-    "gulp-less": "^4.0.1"
+    "gulp-less": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4"
+  },
+  "devDependencies": {
+    "chai": "4.x",
+    "coveralls": "3.x",
+    "eslint": "3.x",
+    "fepper": "*",
+    "fepper-utils": "*",
+    "gulp": "https://github.com/electric-eloquence/gulp/tarball/v3-lts",
+    "husky": "1.x",
+    "mocha": "5.x",
+    "nyc": "13.x"
   }
 }

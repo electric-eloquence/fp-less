@@ -1,0 +1,17 @@
+body {
+  background: white;
+  font: 1.6em/1.5 Helvetica, "Nimbus Sans L", "Liberation Sans", Roboto, sans-serif;
+  color: #333333;
+  min-height: 100vh;
+  padding-bottom: 5rem;
+  position: relative;
+}
+a {
+  color: #333333;
+}
+a:hover,
+a:focus {
+  color: gray;
+}
+
+/*# sourceMappingURL=style.css.map */
