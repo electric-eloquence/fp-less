@@ -5,6 +5,7 @@ const {Transform} = require('stream');
 const gulp = global.gulp || require('gulp');
 const less = require('gulp-less');
 const sourcemaps = require('gulp-sourcemaps');
+const utils = require('fepper-utils');
 
 const conf = global.conf;
 const pref = global.pref;
@@ -132,4 +133,24 @@ gulp.task('less:watch', function () {
 gulp.task('less:watch-no-comment', function () {
   // Return the watcher so it can be closed after testing.
   return gulp.watch('less/**/*', {cwd: cssSrcDir}, ['less:no-comment']);
+});
+
+gulp.task('less:help', function (cb) {
+  let out = `
+Fepper Less Extension
+
+Use:
+    <task> [<additional args>...]
+
+Tasks:
+    fp less                     Build Fepper's Less files into frontend CSS.
+    fp less:frontend-copy       Copy Less-built frontend CSS to backend.
+    fp less:no-comment          Like 'fp less' but without line comments.
+    fp less:once                Same as 'fp less'.
+    fp less:watch               Watch for modifications to Less files and build when modified.
+    fp less:watch-no-comment    Like 'fp less:watch' but without line comments.
+`;
+
+  utils.info(out);
+  cb();
 });
