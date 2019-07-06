@@ -149,6 +149,7 @@ Tasks:
     fp less:once                Same as 'fp less'.
     fp less:watch               Watch for modifications to Less files and build when modified.
     fp less:watch-no-comment    Like 'fp less:watch' but without line comments.
+    fp less:help                Print fp-less tasks and descriptions.
 `;
 
   utils.info(out);
