@@ -461,4 +461,13 @@ describe('fp-less', function () {
       }, 100);
     });
   });
+
+  describe('help text', function () {
+    it('should print help text', function (done) {
+      fp.runSeq(
+        'less:help',
+        done
+      );
+    });
+  });
 });
