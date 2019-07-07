@@ -462,7 +462,7 @@ describe('fp-less', function () {
     });
   });
 
-  describe('help text', function () {
+  describe('fp less:help', function () {
     it('should print help text', function (done) {
       fp.runSeq(
         'less:help',
