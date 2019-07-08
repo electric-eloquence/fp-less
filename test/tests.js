@@ -74,7 +74,7 @@ describe('fp-less', function () {
         styleBldExistsBefore = fs.existsSync(styleBld);
         styleLocalPrefExistsBefore = fs.existsSync(styleLocalPref);
 
-        fp.runSequence(
+        fp.runSeq(
           'less',
           done
         );
@@ -100,7 +100,7 @@ describe('fp-less', function () {
     it('should accept custom options', function (done) {
       pref.less.dumpLineNumbers = false;
 
-      fp.runSequence(
+      fp.runSeq(
         'less',
         () => {
           const styleBldCss = fs.readFileSync(styleBld, enc);
@@ -150,7 +150,7 @@ describe('fp-less', function () {
       it('should not write a sourcemap if configured to print line comments', function (done) {
         pref.less.dumpLineNumbers = 'comments';
 
-        fp.runSequence(
+        fp.runSeq(
           'less',
           () => {
             const sourcemapExistsAfter = fs.existsSync(sourcemap);
@@ -170,7 +170,7 @@ describe('fp-less', function () {
       it('should write a sourcemap inline if configured to so', function (done) {
         pref.less.sourceMap.sourceMapFileInline = true;
 
-        fp.runSequence(
+        fp.runSeq(
           'less',
           () => {
             const sourcemapExistsAfter = fs.existsSync(sourcemap);
@@ -189,7 +189,7 @@ describe('fp-less', function () {
       });
 
       it('should write a sourcemap file if configured to do so', function (done) {
-        fp.runSequence(
+        fp.runSeq(
           'less',
           () => {
             const sourcemapExistsAfter = fs.existsSync(sourcemap);
@@ -213,7 +213,7 @@ describe('fp-less', function () {
       it('should write a sourcemap file with a custom sourceRoot if configured to so', function (done) {
         pref.less.sourceMap.sourceMapRootpath = '/foo/bar';
 
-        fp.runSequence(
+        fp.runSeq(
           'less',
           () => {
             const sourcemapExistsAfter = fs.existsSync(sourcemap);
@@ -259,7 +259,7 @@ describe('fp-less', function () {
         styleBldExistsBefore = fs.existsSync(styleBld);
         styleLocalPrefExistsBefore = fs.existsSync(styleLocalPref);
 
-        fp.runSequence(
+        fp.runSeq(
           'less:frontend-copy',
           'frontend-copy',
           done
@@ -306,7 +306,7 @@ describe('fp-less', function () {
         styleBldExistsBefore = fs.existsSync(styleBld);
         styleLocalPrefExistsBefore = fs.existsSync(styleLocalPref);
 
-        fp.runSequence(
+        fp.runSeq(
           'less:no-comment',
           done
         );
@@ -336,7 +336,7 @@ describe('fp-less', function () {
         styleBldExistsBefore = fs.existsSync(styleBld);
         styleLocalPrefExistsBefore = fs.existsSync(styleLocalPref);
 
-        fp.runSequence(
+        fp.runSeq(
           'less:once',
           done
         );
