@@ -1,6 +1,6 @@
 {
   "name": "fp-less",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Less extension for Fepper",
   "main": "less~extend.js",
   "scripts": {
