@@ -85,7 +85,7 @@ gulp.task('less', function () {
   let sourcemapsInit = sourcemaps.init;
   let sourcemapsWrite = sourcemaps.write;
 
-  // Do not write sourcemaps if pref.less.sourceMap is falsey.
+  // Do not write sourcemaps if pref.less.sourceMap is falsy.
   // Do not write sourcemaps if dumpLineNumbers is truthy, as the sourcemaps may be inaccurate and the line comments
   // redundant.
   if (!pref.less.sourceMap || pref.less.dumpLineNumbers) {
