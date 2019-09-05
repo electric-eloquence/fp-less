@@ -81,7 +81,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should compile LESS partials into a CSS file with line comments', function (done) {
+    it('compiles LESS partials into a CSS file with line comments', function (done) {
       const styleBldCss = fs.readFileSync(styleBld, enc);
 
       expect(styleBldExistsBefore).to.be.false;
@@ -97,7 +97,7 @@ describe('fp-less', function () {
       done();
     });
 
-    it('should accept custom options', function (done) {
+    it('accepts custom options', function (done) {
       pref.less.dumpLineNumbers = false;
 
       fp.runSeq(
@@ -147,7 +147,7 @@ describe('fp-less', function () {
         delete pref.less.sourceMap;
       });
 
-      it('should not write a sourcemap if configured to print line comments', function (done) {
+      it('does not write a sourcemap if configured to print line comments', function (done) {
         pref.less.dumpLineNumbers = 'comments';
 
         fp.runSeq(
@@ -167,7 +167,7 @@ describe('fp-less', function () {
         );
       });
 
-      it('should write a sourcemap inline if configured to so', function (done) {
+      it('writes a sourcemap inline if configured to so', function (done) {
         pref.less.sourceMap.sourceMapFileInline = true;
 
         fp.runSeq(
@@ -188,7 +188,7 @@ describe('fp-less', function () {
         );
       });
 
-      it('should write a sourcemap file if configured to do so', function (done) {
+      it('writes a sourcemap file if configured to do so', function (done) {
         fp.runSeq(
           'less',
           () => {
@@ -210,7 +210,7 @@ describe('fp-less', function () {
         );
       });
 
-      it('should write a sourcemap file with a custom sourceRoot if configured to so', function (done) {
+      it('writes a sourcemap file with a custom sourceRoot if configured to so', function (done) {
         pref.less.sourceMap.sourceMapRootpath = '/foo/bar';
 
         fp.runSeq(
@@ -267,7 +267,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should compile Less without line comments and copy it to the backend', function () {
+    it('compiles Less without line comments and copy it to the backend', function () {
       const styleBackCss = fs.readFileSync(styleBack, enc);
       const styleBackAltCss = fs.readFileSync(styleBackAlt, enc);
       const styleBldCss = fs.readFileSync(styleBld, enc);
@@ -286,7 +286,7 @@ describe('fp-less', function () {
       expect(styleLocalPrefCss).to.equal(styleBackAltCss);
     });
 
-    it('should copy CSS without sourcemapping to the backend', function () {
+    it('copies CSS without sourcemapping to the backend', function () {
       const styleBackCss = fs.readFileSync(styleBack, enc);
       const styleBackAltCss = fs.readFileSync(styleBackAlt, enc);
 
@@ -313,7 +313,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should not print line comments', function () {
+    it('does not print line comments', function () {
       const styleBldCss = fs.readFileSync(styleBld, enc);
       const styleLocalPrefCss = fs.readFileSync(styleLocalPref, enc);
 
@@ -343,7 +343,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should be alias for `fp less`', function () {
+    it('is an alias for `fp less`', function () {
       const styleBldCss = fs.readFileSync(styleBld, enc);
       const styleLocalPrefCss = fs.readFileSync(styleLocalPref, enc);
 
@@ -391,7 +391,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should compile LESS into bld CSS with line comments when a LESS partial is modified', function (done) {
+    it('compiles LESS into bld CSS with line comments when a LESS partial is modified', function (done) {
       const less = fs.readFileSync(styleLess, enc);
       const watcher = fp.tasks['less:watch'].fn();
 
@@ -440,7 +440,7 @@ describe('fp-less', function () {
       });
     });
 
-    it('should compile LESS into bld CSS without line comments when a LESS partial is modified', function (done) {
+    it('compiles LESS into bld CSS without line comments when a LESS partial is modified', function (done) {
       const less = fs.readFileSync(styleLess, enc);
       const watcher = fp.tasks['less:watch-no-comment'].fn();
 
@@ -463,7 +463,7 @@ describe('fp-less', function () {
   });
 
   describe('fp less:help', function () {
-    it('should print help text', function (done) {
+    it('prints help text', function (done) {
       fp.runSeq(
         'less:help',
         done
