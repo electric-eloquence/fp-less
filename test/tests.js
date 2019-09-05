@@ -87,12 +87,12 @@ describe('fp-less', function () {
       expect(styleBldExistsBefore).to.be.false;
       expect(styleLocalPrefExistsBefore).to.be.false;
 
-      expect(styleBldCss).to.contain(cssBody);
-      expect(styleBldCss).to.contain(cssA);
-      expect(styleBldCss).to.contain(cssPseudoClass);
-      expect(styleBldCss).to.contain('/* line 3');
-      expect(styleBldCss).to.contain('/* line 11');
-      expect(styleBldCss).to.contain('/* line 13');
+      expect(styleBldCss).to.have.string(cssBody);
+      expect(styleBldCss).to.have.string(cssA);
+      expect(styleBldCss).to.have.string(cssPseudoClass);
+      expect(styleBldCss).to.have.string('/* line 3');
+      expect(styleBldCss).to.have.string('/* line 11');
+      expect(styleBldCss).to.have.string('/* line 13');
 
       done();
     });
@@ -105,10 +105,10 @@ describe('fp-less', function () {
         () => {
           const styleBldCss = fs.readFileSync(styleBld, enc);
 
-          expect(styleBldCss).to.contain(cssBody);
-          expect(styleBldCss).to.contain(cssA);
-          expect(styleBldCss).to.contain(cssPseudoClass);
-          expect(styleBldCss).to.not.contain('/* line ');
+          expect(styleBldCss).to.have.string(cssBody);
+          expect(styleBldCss).to.have.string(cssA);
+          expect(styleBldCss).to.have.string(cssPseudoClass);
+          expect(styleBldCss).to.not.have.string('/* line ');
 
           pref.less.dumpLineNumbers = 'comments';
 
@@ -158,7 +158,7 @@ describe('fp-less', function () {
 
             expect(sourcemapExistsBefore).to.be.false;
             expect(sourcemapExistsAfter).to.be.false;
-            expect(styleBldCss).to.not.contain('/*# sourceMappingURL=');
+            expect(styleBldCss).to.not.have.string('/*# sourceMappingURL=');
 
             pref.less.dumpLineNumbers = false;
 
@@ -178,7 +178,7 @@ describe('fp-less', function () {
 
             expect(sourcemapExistsBefore).to.be.false;
             expect(sourcemapExistsAfter).to.be.false;
-            expect(styleBldCss).to.contain('/*# sourceMappingURL=data:application/json;');
+            expect(styleBldCss).to.have.string('/*# sourceMappingURL=data:application/json;');
 
             fs.copyFileSync(styleBld, `${pubCssBldDir}/sourcemap-inline.css`);
             delete pref.less.sourceMap.sourceMapFileInline;
@@ -203,7 +203,7 @@ describe('fp-less', function () {
             expect(sourcemapJson).to.have.property('names');
             expect(sourcemapJson).to.have.property('mappings');
             expect(sourcemapJson).to.have.property('file');
-            expect(styleBldCss).to.contain('/*# sourceMappingURL=');
+            expect(styleBldCss).to.have.string('/*# sourceMappingURL=');
 
             done();
           }
@@ -223,7 +223,7 @@ describe('fp-less', function () {
             expect(sourcemapExistsBefore).to.be.false;
             expect(sourcemapExistsAfter).to.be.true;
             expect(sourcemapJson.sourceRoot).to.equal(pref.less.sourceMap.sourceMapRootpath);
-            expect(styleBldCss).to.contain('/*# sourceMappingURL=');
+            expect(styleBldCss).to.have.string('/*# sourceMappingURL=');
 
             fs.copyFileSync(styleBld, styleBld.replace(srcCssBldDir, pubCssBldDir));
             fs.copyFileSync(sourcemap, sourcemap.replace(srcCssBldDir, pubCssBldDir));
@@ -279,8 +279,8 @@ describe('fp-less', function () {
       expect(styleBldExistsBefore).to.be.false;
       expect(styleLocalPrefExistsBefore).to.be.false;
 
-      expect(styleBldCss).to.not.contain('/* line ');
-      expect(styleLocalPrefCss).to.not.contain('/* line ');
+      expect(styleBldCss).to.not.have.string('/* line ');
+      expect(styleLocalPrefCss).to.not.have.string('/* line ');
 
       expect(styleBldCss).to.equal(styleBackCss);
       expect(styleLocalPrefCss).to.equal(styleBackAltCss);
@@ -290,8 +290,8 @@ describe('fp-less', function () {
       const styleBackCss = fs.readFileSync(styleBack, enc);
       const styleBackAltCss = fs.readFileSync(styleBackAlt, enc);
 
-      expect(styleBackCss).to.not.contain('/*# sourceMappingURL=');
-      expect(styleBackAltCss).to.not.contain('/*# sourceMappingURL=');
+      expect(styleBackCss).to.not.have.string('/*# sourceMappingURL=');
+      expect(styleBackAltCss).to.not.have.string('/*# sourceMappingURL=');
     });
   });
 
@@ -320,8 +320,8 @@ describe('fp-less', function () {
       expect(styleBldExistsBefore).to.be.false;
       expect(styleLocalPrefExistsBefore).to.be.false;
 
-      expect(styleBldCss).to.not.contain('/* line ');
-      expect(styleLocalPrefCss).to.not.contain('/* line ');
+      expect(styleBldCss).to.not.have.string('/* line ');
+      expect(styleLocalPrefCss).to.not.have.string('/* line ');
     });
   });
 
@@ -350,19 +350,19 @@ describe('fp-less', function () {
       expect(styleBldExistsBefore).to.be.false;
       expect(styleLocalPrefExistsBefore).to.be.false;
 
-      expect(styleBldCss).to.contain(cssBody);
-      expect(styleBldCss).to.contain(cssA);
-      expect(styleBldCss).to.contain(cssPseudoClass);
-      expect(styleLocalPrefCss).to.contain(cssBody);
-      expect(styleLocalPrefCss).to.contain(cssA);
-      expect(styleLocalPrefCss).to.contain(cssPseudoClass);
+      expect(styleBldCss).to.have.string(cssBody);
+      expect(styleBldCss).to.have.string(cssA);
+      expect(styleBldCss).to.have.string(cssPseudoClass);
+      expect(styleLocalPrefCss).to.have.string(cssBody);
+      expect(styleLocalPrefCss).to.have.string(cssA);
+      expect(styleLocalPrefCss).to.have.string(cssPseudoClass);
 
-      expect(styleBldCss).to.contain('/* line 3');
-      expect(styleBldCss).to.contain('/* line 11');
-      expect(styleBldCss).to.contain('/* line 13');
-      expect(styleLocalPrefCss).to.contain('/* line 3');
-      expect(styleLocalPrefCss).to.contain('/* line 11');
-      expect(styleLocalPrefCss).to.contain('/* line 13');
+      expect(styleBldCss).to.have.string('/* line 3');
+      expect(styleBldCss).to.have.string('/* line 11');
+      expect(styleBldCss).to.have.string('/* line 13');
+      expect(styleLocalPrefCss).to.have.string('/* line 3');
+      expect(styleLocalPrefCss).to.have.string('/* line 11');
+      expect(styleLocalPrefCss).to.have.string('/* line 13');
     });
   });
 
@@ -400,13 +400,13 @@ describe('fp-less', function () {
         setTimeout(() => {
           const css = fs.readFileSync(styleWatchCss, enc);
 
-          expect(css).to.contain(cssHtml);
-          expect(css).to.contain(cssBody);
-          expect(css).to.contain(cssA);
-          expect(css).to.contain(cssPseudoClass);
-          expect(css).to.contain('/* line 3');
-          expect(css).to.contain('/* line 11');
-          expect(css).to.contain('/* line 13');
+          expect(css).to.have.string(cssHtml);
+          expect(css).to.have.string(cssBody);
+          expect(css).to.have.string(cssA);
+          expect(css).to.have.string(cssPseudoClass);
+          expect(css).to.have.string('/* line 3');
+          expect(css).to.have.string('/* line 11');
+          expect(css).to.have.string('/* line 13');
 
           watcher.close();
           done();
@@ -449,11 +449,11 @@ describe('fp-less', function () {
         setTimeout(() => {
           const css = fs.readFileSync(styleWatchCss, enc);
 
-          expect(css).to.contain(cssHtml);
-          expect(css).to.contain(cssBody);
-          expect(css).to.contain(cssA);
-          expect(css).to.contain(cssPseudoClass);
-          expect(css).to.not.contain('/* line ');
+          expect(css).to.have.string(cssHtml);
+          expect(css).to.have.string(cssBody);
+          expect(css).to.have.string(cssA);
+          expect(css).to.have.string(cssPseudoClass);
+          expect(css).to.not.have.string('/* line ');
 
           watcher.close();
           done();
