@@ -104,12 +104,7 @@ gulp.task('less', function () {
     .pipe(gulp.dest(cssBldDir));
 });
 
-gulp.task('less:frontend-copy', function (cb) {
-  gulp.runSequence(
-    'less:no-comment',
-    cb
-  );
-});
+gulp.task('less:frontend-copy', ['less:no-comment']);
 
 // This runs the CSS processor without outputting line comments.
 // You probably want this to preprocess CSS destined for production.
